@@ -1,0 +1,18 @@
+ declare
+        dno  number;
+       dnm varchar2(20);
+        dloc varchar2(30);
+        cursor empcur is select deptno,dname,loc into dno,dnm,dloc from dept;
+    begin
+    open empcur;
+    loop
+    fetch empcur into dno,dnm,dloc;
+       dbms_output.put_line('department number: '||dno);
+       dbms_output.put_line('department name: '||dnm);
+       dbms_output.put_line('department location: '||dloc);
+   exit when empcur%notfound;
+   end loop;
+   close empcur;
+       dbms_output.put_line('End of main');
+   end;
+   /

@@ -1,0 +1,43 @@
+
+C:\>D:
+
+D:\javacs>
+D:\javacs>cd/
+
+D:\>C:
+
+C:\>set path="C:\Program Files\Java\jdk1.8.0_131\bin";%path%
+
+C:\>set path
+Path="C:\Program Files\Java\jdk1.8.0_131\bin";C:\oraclexe\app\oracle\product\10.2.0\server\bin;C:\Program Files\Common Files\Microsoft Shared\Microsoft Online Services;C:\Program Files (x86)\Common Files\Microsoft Shared\Microsoft Online Services;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\TortoiseSVN\bin;C:\Users\vshadmin\AppData\Local\Microsoft\WindowsApps;
+PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+
+C:\>D:
+
+D:\>javacs
+'javacs' is not recognized as an internal or external command,
+operable program or batch file.
+
+D:\>cd javacs
+
+D:\javacs>javac first.java
+
+D:\javacs>java first
+Error: Could not find or load main class first
+
+D:\javacs>java first
+Error: Could not find or load main class first
+
+====================================================================================
+
+D:\javaprograms>javac First.java
+
+D:\javaprograms>java First
+Error: Could not find or load main class First
+
+D:\javaprograms>java Greet
+HEllo from  java
+kindly withdraw....
+FLy of the flight
+
+D:\javaprograms>

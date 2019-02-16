@@ -1,0 +1,110 @@
+			********  CURSOR  *******
+		     (pointer to the active data set)
+
+Attributes:
+1. SQL%FOUND
+2. SQL%NOTFOUND
+3. SQL%ISOPEN
+4. SQL%ROWcount
+
+
+create table emp1 as select * from emp;
+
+declare
+dno number:=&temp;
+begin 
+	delete from emp1 where deptno=dno;
+	dbms_output.put_line('Total records deleted : '||SQL%ROWCount);
+end;
+/	
+O/P
+Enter value for temp: 10
+old   2: dno number:=&temp;
+new   2: dno number:=10;
+Total records deleted : 3
+
+PL/SQL procedure successfully completed.
+_____________________________________________________________
+
+
+declare
+dno number:=&temp;
+begin 
+	delete from emp1 where deptno=dno;
+	if sql%notfound then
+		dbms_output.put_line('Records for this deptno not found : '||dno);
+	else
+		dbms_output.put_line('Total records deleted : '||SQL%ROWCount);
+	end if;
+end;
+/
+		O/P:
+Enter value for temp: 45
+old   2: dno number:=&temp;
+new   2: dno number:=45;
+Records for this deptno not found : 45
+
+PL/SQL procedure successfully completed.
+
+SQL> /
+Enter value for temp: 20
+old   2: dno number:=&temp;
+new   2: dno number:=20;
+Total records deleted : 5
+
+PL/SQL procedure successfully completed.	
+___________________________________________________________________________
+
+declare
+dno number:=&temp;
+begin 
+	delete from emp1 where deptno=dno;
+	if SQL%found then
+		dbms_output.put_line('Total records deleted : '||SQL%ROWCount);
+	else
+		dbms_output.put_line('Records for this deptno not found : '||dno);
+	end if;
+end;
+/
+
+
+o/p
+
+Enter value for temp: 10
+old   2: dno number:=&temp;
+new   2: dno number:=10;
+Records for this deptno not found : 10
+
+PL/SQL procedure successfully completed.
+
+SQL> /
+Enter value for temp: 30
+old   2: dno number:=&temp;
+new   2: dno number:=30;
+Total records deleted : 6
+
+PL/SQL procedure successfully completed.
+___________________________________________________________________________
+
+declare
+
+	dno dept.deptno%type;	
+	deptname dept.dname%type;	
+	deptloc dept.loc%type;
+	cursor empcur is select deptno,dname,loc from dept;
+begin
+	dbms_output.put_line('INSIDE BLOCK');
+	open empcur;
+	  loop
+	     fetch empcur into dno,deptname,deptloc;
+		dbms_output.put_line('-------------------------------');
+	        dbms_output.put_line('Dept no : '||dno);
+	        dbms_output.put_line('Dept name : '||dno);
+		dbms_output.put_line('Dept loc : '||dno);
+	     exit when empcur%notfound;
+	  end loop;
+	close empcur;
+	
+	dbms_output.put_line('end of main');
+end;
+/

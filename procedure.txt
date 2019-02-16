@@ -1,0 +1,54 @@
+without return type and without para
+
+
+create procedure Average is
+begin
+dbms_output.put_line('average is 6');
+end;
+
+------------------------------------------------------
+create procedure ADDA(x number,y number) IS
+
+
+ ans number;
+ 
+begin
+
+ ans := x+y;
+dbms_output.put_line('average is '|| ans);
+end;
+------------------------------------------------------
+create procedure two(x OUT number) IS
+ 
+begin
+
+x := 3*5;
+
+end;
+----executing it---
+declare 
+y number;
+begin
+
+ two(y);
+dbms_output.put_line('multiplication is'||y);
+end;
+
+---------------------------------------
+create procedure four( x number,y number, z OUT number) IS
+
+begin
+
+z:= x+y;
+dbms_output.put_line('average is '|| z);
+end;
+
+
+declare 
+z number;
+
+begin
+
+ four(2,3,z);
+dbms_output.put_line('multiplication is'||z);
+end;
